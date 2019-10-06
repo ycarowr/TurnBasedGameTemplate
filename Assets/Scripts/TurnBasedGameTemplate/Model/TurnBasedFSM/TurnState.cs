@@ -132,7 +132,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             }
             else
             {
-                yield return new WaitForSeconds(Configurations.TimeOutTurn);
+                yield return new WaitForSeconds(Configurations.Timers.TimeUntilFinishTurn);
             }
 
             PassTurn();
@@ -142,7 +142,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         /// <returns></returns>
         protected virtual IEnumerator StartTurn()
         {
-            yield return new WaitForSeconds(Configurations.TimeStartTurn);
+            yield return new WaitForSeconds(Configurations.Timers.TimeUntilStartTurn);
             GameData.RuntimeGame.StartCurrentPlayerTurn();
         }
 

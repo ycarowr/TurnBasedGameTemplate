@@ -22,8 +22,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         #region Properties
 
         Coroutine AiFinishTurnRoutine { get; set; }
-        float AiFinishTurnDelay => Configurations.AiFinishTurnDelay;
-        float AiDoTurnDelay => Configurations.AiDoTurnDelay;
+        float AiFinishTurnDelay => Configurations.Timers.TimeUntilAiFinishTurn;
+        float AiDoTurnDelay => Configurations.Timers.TimeUntilAiDoTurn;
 
         #endregion
 
@@ -77,8 +77,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             if (!IsAi)
                 yield break;
 
-            if (!Configurations.PlayerTurn.DebugAiTurn)
-                Fsm.Handler.MonoBehaviour.StartCoroutine(TimeOut());
+            Fsm.Handler.MonoBehaviour.StartCoroutine(TimeOut());
         }
 
         #endregion

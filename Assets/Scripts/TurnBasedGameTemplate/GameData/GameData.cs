@@ -43,13 +43,13 @@ namespace TurnBasedGameTemplate.GameData
         public void CreateGame()
         {
             //create and connect players to their seats
-            var player1 = new Player(configurations.PlayerTurn.UserSeat, configurations);
+            var playerBottom = new Player(configurations.Profiles.BottomPlayer.Seat, configurations);
 
             //if the second player doesn't have a deck, send null
-            var player2 = new Player(PlayerSeat.Top, configurations);
+            var playerTop = new Player(configurations.Profiles.TopPlayer.Seat, configurations);
 
             //create game data
-            RuntimeGame = new Game(new List<IPlayer> {player1, player2}, configurations);
+            RuntimeGame = new Game(new List<IPlayer> {playerBottom, playerTop}, configurations);
         }
 
         public void LoadGame()

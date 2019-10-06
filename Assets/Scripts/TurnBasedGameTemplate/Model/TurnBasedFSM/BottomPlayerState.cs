@@ -22,8 +22,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         #region Properties
 
         public override PlayerSeat Seat => PlayerSeat.Bottom;
-        public override bool IsAi => Configurations.BottomIsAi;
-        public override bool IsUser => true;
+        public override bool IsAi => Configurations.Profiles.BottomPlayer.IsAi;
+        public override bool IsUser => !Configurations.Profiles.BottomPlayer.IsAi;
 
         #endregion
 

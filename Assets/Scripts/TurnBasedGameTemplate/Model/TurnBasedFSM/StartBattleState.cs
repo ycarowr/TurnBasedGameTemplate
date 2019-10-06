@@ -47,7 +47,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         IEnumerator NextStateRoutine(BaseBattleState nextState)
         {
-            yield return new WaitForSeconds(Configurations.FirstPlayer);
+            yield return new WaitForSeconds(Configurations.Timers.TimeUntilFirstPlayer);
             OnNextState(nextState);
         }
 
@@ -59,13 +59,15 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         IEnumerator PreGameRoutine()
         {
-            yield return new WaitForSeconds(Configurations.PreGameEvent);
+            yield return new WaitForSeconds(Configurations.Timers.TimeUntilPreGameEvent);
             GameData.RuntimeGame.PreStartGame();
         }
 
         IEnumerator StartGameRoutine()
         {
-            var time = Configurations.PreGameEvent + Configurations.StartGameEvent;
+            var preGame = Configurations.Timers.TimeUntilPreGameEvent;
+            var startGame = Configurations.Timers.TimeUntilStartGameEvent;
+            var time = preGame + startGame;
             yield return new WaitForSeconds(time);
             GameData.RuntimeGame.StartGame();
         }

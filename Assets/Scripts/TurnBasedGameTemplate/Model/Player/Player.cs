@@ -16,7 +16,7 @@
 
         public PlayerSeat Seat { get; }
 
-        public bool IsUser => Seat == Configurations.PlayerTurn.UserSeat;
+        public bool IsUser => Seat == Configurations.Profiles.UserSeat;
 
         #region Mechanics
 

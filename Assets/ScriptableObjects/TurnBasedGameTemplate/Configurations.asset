@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340d871622354f14484f719e366a3e80, type: 3}
   m_Name: Configurations
   m_EditorClassIdentifier: 
-  maxTeam: 3
-  GameStart:
-    FirstPlayer: 3
-    PreGameEvent: 0.01
-    StartGameEvent: 0.01
-  PlayerTurn:
-    DebugAiTurn: 0
-    TimeOutTurn: 8
-    TimeStartTurn: 1
+  Timers:
+    TimeUntilPreGameEvent: 0.01
+    TimeUntilStartGameEvent: 0.01
+    TimeUntilFirstPlayer: 3
+    TimeUntilFinishTurn: 6
+    TimeUntilStartTurn: 0.01
+    TimeUntilAiDoTurn: 2.5
+    TimeUntilAiFinishTurn: 3.5
+  Profiles:
     UserSeat: 0
-  Ai:
-    AiDoTurnDelay: 2.5
-    AiFinishTurnDelay: 3.5
     BottomPlayer:
       IsAi: 0
+      Seat: 0
     TopPlayer:
       IsAi: 1
+      Seat: 2

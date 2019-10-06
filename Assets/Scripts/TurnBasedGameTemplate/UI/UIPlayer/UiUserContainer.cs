@@ -6,7 +6,7 @@ namespace TurnBasedGameTemplate.UI
     /// <summary> User HUD</summary>
     public class UiUserContainer : UiPlayerContainer
     {
-        public override PlayerSeat Seat => Controller.Data.RuntimeGame.Configurations.PlayerTurn.UserSeat;
+        public override PlayerSeat Seat => Controller.Data.RuntimeGame.Configurations.Profiles.UserSeat;
 
         void Awake()
         {

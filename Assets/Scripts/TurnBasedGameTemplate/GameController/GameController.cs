@@ -52,7 +52,7 @@ namespace TurnBasedGameTemplate.GameController
         /// <returns></returns>
         public IPlayerTurn GetUser()
         {
-            return GetPlayerController(configurations.PlayerTurn.UserSeat);
+            return GetPlayerController(configurations.Profiles.UserSeat);
         }
 
         /// <summary>  Provides access to players controllers according to the player seat.</summary>
