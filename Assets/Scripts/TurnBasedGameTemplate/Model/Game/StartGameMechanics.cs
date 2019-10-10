@@ -15,7 +15,7 @@ namespace TurnBasedGameTemplate.Model.Game
         public void Execute()
         {
             if (Game.IsGameStarted) return;
-
+ 
             Game.IsGameStarted = true;
 
             //calculus of the starting player

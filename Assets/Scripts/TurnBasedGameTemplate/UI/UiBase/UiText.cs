@@ -6,7 +6,7 @@ namespace TurnBasedGameTemplate.UI
 {
     public class UiText : MonoBehaviour
     {
-        [SerializeField] readonly string defaultText = string.Empty;
+        readonly string defaultText = string.Empty;
 
         [Tooltip("Color of the text.")] [SerializeField]
         protected Color color = Color.black;

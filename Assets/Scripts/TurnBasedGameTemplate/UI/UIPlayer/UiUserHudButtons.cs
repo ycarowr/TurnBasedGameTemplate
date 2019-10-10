@@ -4,7 +4,10 @@ namespace TurnBasedGameTemplate.UI
 {
     [RequireComponent(typeof(IUiUserInput))]
     [RequireComponent(typeof(IUiPlayer))]
-    public class UiUserHudButtons : MonoBehaviour, UiButtonRandom.IPressPassTurn
+    public class UiUserHudButtons : MonoBehaviour,
+        UiButtonRandom.IPressPassTurn,
+        UiButtonLose.IPressLose,
+        UiButtonWin.IPressWin
     {
         IUiPlayer Ui { get; set; }
         IUiUserInput UserInput { get; set; }
@@ -17,6 +20,18 @@ namespace TurnBasedGameTemplate.UI
         {
             if (Ui.PlayerController.PassTurn())
                 DisableInput();
+        }
+
+        void UiButtonLose.IPressLose.PressLose()
+        {
+            Ui.Controller.Lose();
+            DisableInput();
+        }
+
+        void UiButtonWin.IPressWin.PressWin()
+        {
+            Ui.Controller.Win();
+            DisableInput();
         }
 
         #endregion

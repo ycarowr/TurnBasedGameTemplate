@@ -11,6 +11,7 @@
         Move,
         Restart,
         Win,
-        Lose
+        Lose,
+        PassTurn
     }
 }

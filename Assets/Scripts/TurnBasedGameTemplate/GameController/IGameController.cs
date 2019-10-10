@@ -12,5 +12,7 @@ namespace TurnBasedGameTemplate.GameController
         IPlayerTurn GetUser();
         IPlayerTurn GetPlayerController(PlayerSeat seat);
         void RestartGameImmediately();
+        void Win();
+        void Lose();
     }
 }
