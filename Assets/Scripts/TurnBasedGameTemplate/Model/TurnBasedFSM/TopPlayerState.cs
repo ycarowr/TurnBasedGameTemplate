@@ -1,31 +1,19 @@
-﻿using TurnBasedGameTemplate.GameData;
+﻿using TurnBasedGameTemplate.Configurations;
+using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
     public class TopPlayerState : AiTurnState
     {
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Constructor
-
-        public TopPlayerState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations) : base(fsm, gameData,
-            configurations)
+        public TopPlayerState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
+            base(fsm, gameData, gameParameters, gameEvents)
         {
         }
 
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Properties
-
         public override PlayerSeat Seat => PlayerSeat.Top;
-        public override bool IsAi => Configurations.Profiles.TopPlayer.IsAi;
-        public override bool IsUser => !Configurations.Profiles.TopPlayer.IsAi;
-
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
+        public override bool IsAi => GameParameters.Profiles.TopPlayer.IsAi;
+        public override bool IsUser => !GameParameters.Profiles.TopPlayer.IsAi;
     }
 }

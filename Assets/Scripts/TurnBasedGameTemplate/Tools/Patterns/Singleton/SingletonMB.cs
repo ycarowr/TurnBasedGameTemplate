@@ -22,10 +22,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.Singleton
         }
 
 
-        public void InjectInstance(T instance)
-        {
-            Instance = instance;
-        }
+        public void InjectInstance(T instance) => Instance = instance;
 
         protected virtual void Awake()
         {

@@ -1,5 +1,4 @@
 ﻿using TurnBasedGameTemplate.Localization;
-using TurnBasedGameTemplate.UI;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
@@ -17,9 +16,6 @@ namespace TurnBasedGameTemplate.UI
             PlayerText = Localization.Localization.Instance.Get(LocalizationIds.Player);
         }
 
-        void Start()
-        {
-            UiText.SetText(PlayerText + ": " + Ui.Seat);
-        }
+        void Start() => UiText.SetText(PlayerText + ": " + Ui.Seat);
     }
 }

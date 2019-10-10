@@ -1,32 +1,22 @@
-﻿using TurnBasedGameTemplate.GameData;
+﻿using TurnBasedGameTemplate.Configurations;
+using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
-    /// <summary> Bottom, where the User is always sitting.</summary>
+    /// <summary> Bottom, where the User is always sitting. </summary>
     public class BottomPlayerState : AiTurnState
     {
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Constructor
-
-        public BottomPlayerState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations) :
-            base(fsm, gameData, configurations)
+        public BottomPlayerState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters,
+            Observer gameEvents) :
+            base(fsm, gameData, gameParameters, gameEvents)
         {
+            
         }
 
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Properties
-
         public override PlayerSeat Seat => PlayerSeat.Bottom;
-        public override bool IsAi => Configurations.Profiles.BottomPlayer.IsAi;
-        public override bool IsUser => !Configurations.Profiles.BottomPlayer.IsAi;
-
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
+        public override bool IsAi => GameParameters.Profiles.BottomPlayer.IsAi;
+        public override bool IsUser => !GameParameters.Profiles.BottomPlayer.IsAi;
     }
 }

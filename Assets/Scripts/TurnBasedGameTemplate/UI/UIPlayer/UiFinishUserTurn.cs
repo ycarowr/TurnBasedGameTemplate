@@ -1,13 +1,13 @@
 ﻿using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.UI;
+using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
     [RequireComponent(typeof(IUiUserInput))]
     [RequireComponent(typeof(IUiPlayer))]
-    public class UiFinishUserTurn : UiListener, IFinishPlayerTurn
+    public class UiFinishUserTurn : UiGameEventListener, IFinishPlayerTurn
     {
         IUiUserInput UserInput { get; set; }
         IUiPlayer Ui { get; set; }

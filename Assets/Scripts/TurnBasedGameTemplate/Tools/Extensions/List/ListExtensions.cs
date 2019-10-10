@@ -5,13 +5,14 @@ using Random = UnityEngine.Random;
 
 namespace TurnBasedGameTemplate.Tools.Extensions.List
 {
-    /// <summary> 
+    /// <summary>
     ///     Extension methods for the class List
     ///     Refs:https://gist.github.com/omgwtfgames/f917ca28581761b8100fhttps://github.com/mminer/unity-extensions
     /// </summary>
     public static class ListExtensions
     {
-        /// <summary> Returns a random item from inside the
+        /// <summary>
+        ///     Returns a random item from inside the
         ///     <typeparam name="T">List</typeparam>
         ///     >
         /// </summary>
@@ -27,7 +28,8 @@ namespace TurnBasedGameTemplate.Tools.Extensions.List
             return list[randomIndex];
         }
 
-        /// <summary> Returns and Remove a random item from inside the
+        /// <summary>
+        ///     Returns and Remove a random item from inside the
         ///     <typeparam name="T">List</typeparam>
         ///     >
         /// </summary>
@@ -41,7 +43,7 @@ namespace TurnBasedGameTemplate.Tools.Extensions.List
             return item;
         }
 
-        /// <summary> Shuffles the List using Fisher Yates algorithm: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle.</summary>
+        /// <summary> Shuffles the List using Fisher Yates algorithm: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle. </summary>
         public static void Shuffle<T>(this List<T> list)
         {
             var n = list.Count;
@@ -61,10 +63,7 @@ namespace TurnBasedGameTemplate.Tools.Extensions.List
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <param name="item"></param>
-        public static void AddToFront<T>(this List<T> list, T item)
-        {
-            list.Insert(0, item);
-        }
+        public static void AddToFront<T>(this List<T> list, T item) => list.Insert(0, item);
 
         /// <summary> Add an item in before another item</summary>
         /// <typeparam name="T"></typeparam>

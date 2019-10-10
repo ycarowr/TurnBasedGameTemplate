@@ -6,9 +6,6 @@ namespace TurnBasedGameTemplate.UI
     {
         UiPlayerContainer Handler { get; set; }
 
-        void Awake()
-        {
-            Handler = GetComponentInParent<UiPlayerContainer>();
-        }
+        void Awake() => Handler = GetComponentInParent<UiPlayerContainer>();
     }
 }

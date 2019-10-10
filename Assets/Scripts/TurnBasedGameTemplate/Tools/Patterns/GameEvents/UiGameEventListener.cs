@@ -5,26 +5,19 @@ namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents
 {
     public class UiGameEventListener : MonoBehaviour, IListener
     {
-        protected virtual void Awake()
+        [SerializeField] Observer.Observer GameEvents;
+        
+        protected virtual void Start()
         {
+            if(GameEvents == null)
+                Debug.Log("Assign a observer to "+ gameObject.name);
             Subscribe();
         }
 
-        protected virtual void OnDestroy()
-        {
-            Unsubscribe();
-        }
+        protected virtual void OnDestroy() => Unsubscribe();
 
-        void Subscribe()
-        {
-            if (GameEvents.Instance)
-                GameEvents.Instance.AddListener(this);
-        }
+        void Subscribe() => GameEvents.AddListener(this);
 
-        void Unsubscribe()
-        {
-            if (GameEvents.Instance)
-                GameEvents.Instance.RemoveListener(this);
-        }
+        void Unsubscribe() => GameEvents?.RemoveListener(this);
     }
 }

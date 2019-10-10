@@ -13,7 +13,7 @@ namespace TurnBasedGameTemplate.Tools.Input.Mouse
         Right
     }
 
-    /// <summary> Interface for all Unity Mouse Input System.</summary>
+    /// <summary> Interface for all Unity Mouse Input System. </summary>
     public interface IMouseInput :
         IPointerClickHandler,
         IBeginDragHandler,
@@ -40,7 +40,7 @@ namespace TurnBasedGameTemplate.Tools.Input.Mouse
         new Action<PointerEventData> OnEndDrag { get; set; }
         new Action<PointerEventData> OnDrop { get; set; }
 
-        //enter
+        //enter, exit
         new Action<PointerEventData> OnPointerEnter { get; set; }
         new Action<PointerEventData> OnPointerExit { get; set; }
         void StartTracking();

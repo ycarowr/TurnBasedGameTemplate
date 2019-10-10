@@ -4,7 +4,6 @@ using TMPro;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
 using TurnBasedGameTemplate.Tools.Patterns.Observer;
-using TurnBasedGameTemplate.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +37,7 @@ namespace TurnBasedGameTemplate.UI
         IFinishGame
     {
         const float DelayToShow = 3.5f;
+        [SerializeField] Observer GameEvents;
         UITextMeshImage UiButton { get; set; }
 
         protected override void OnSetHandler(IButtonHandler handler)
@@ -61,15 +61,9 @@ namespace TurnBasedGameTemplate.UI
 
         #region Game Events
 
-        void IFinishGame.OnFinishGame(IPlayer winner)
-        {
-            StartCoroutine(ShowButton());
-        }
+        void IFinishGame.OnFinishGame(IPlayer winner) => StartCoroutine(ShowButton());
 
-        void IPreGameStart.OnPreGameStart(List<IPlayer> players)
-        {
-            UiButton.Enabled = false;
-        }
+        void IPreGameStart.OnPreGameStart(List<IPlayer> players) => UiButton.Enabled = false;
 
         #endregion
 
@@ -77,23 +71,14 @@ namespace TurnBasedGameTemplate.UI
 
         #region Unity callbacks
 
-        protected void Awake()
-        {
+        protected void Awake() =>
             UiButton = new UITextMeshImage(
                 GetComponentInChildren<TMP_Text>(),
                 GetComponent<Image>());
-        }
 
-        void Start()
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.AddListener(this);
-        }
+        void Start() => GameEvents.AddListener(this);
 
-        void OnDestroy()
-        {
-            if (Tools.Patterns.GameEvents.GameEvents.Instance)
-                Tools.Patterns.GameEvents.GameEvents.Instance.RemoveListener(this);
-        }
+        void OnDestroy() => GameEvents.RemoveListener(this);
 
         #endregion
 

@@ -40,10 +40,8 @@ namespace TurnBasedGameTemplate.Tools.Patterns.Command
         #region Operations
 
         /// <summary>  Enqueue a command after a determined amount of time. </summary>
-        public void EnqueueWithDelay(T1 command, float timeToEnqueue)
-        {
+        public void EnqueueWithDelay(T1 command, float timeToEnqueue) =>
             Enqueueing = StartCoroutine(TimeredEnqueue(command, timeToEnqueue));
-        }
 
         public override void Enqueue(T1 command)
         {

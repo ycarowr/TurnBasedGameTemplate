@@ -40,12 +40,12 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
             Log("Initialized!", "green");
         }
 
-        /// <summary> If you need to do something before the initialization, override this method.</summary>
+        /// <summary> If you need to do something before the initialization, override this method. </summary>
         protected virtual void OnBeforeInitialize()
         {
         }
 
-        /// <summary> If you need to do something after the initialization, override this method.</summary>
+        /// <summary> If you need to do something after the initialization, override this method. </summary>
         protected virtual void OnInitialize()
         {
         }
@@ -73,7 +73,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
         }
 
 
-        /// <summary> 
+        /// <summary>
         ///     Update all registered states (uncomment it if you need this callback).TODO: Consider to replace 'foreach' by
         ///     'for' to minimize the garbage collection.
         /// </summary>
@@ -90,7 +90,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
 
         # region Operations
 
-        /// <summary> Checks if a an StateType is the current state.</summary>
+        /// <summary> Checks if a an StateType is the current state. </summary>
         /// <typeparam name="T1"></typeparam>
         public bool IsCurrent<T1>() where T1 : StateMB<T>
         {
@@ -100,7 +100,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
             return current.GetType() == typeof(T1);
         }
 
-        /// <summary> Checks if a an StateType is the current state.</summary>
+        /// <summary> Checks if a an StateType is the current state. </summary>
         public bool IsCurrent(StateMB<T> state)
         {
             if (state == null)
@@ -113,7 +113,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
         }
 
 
-        /// <summary> 
+        /// <summary>
         ///     Pushes a state by Type triggering OnEnterState for the pushedstate and OnExitState for the previous state in
         ///     the stack.
         /// </summary>
@@ -125,7 +125,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
             PushState(state, isSilent);
         }
 
-        /// <summary> 
+        /// <summary>
         ///     Pushes state by instance of the class triggering OnEnterState for thepushed state and if not silent
         ///     OnExitState for the previous state in the stack.
         /// </summary>
@@ -147,7 +147,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
             state.OnEnterState();
         }
 
-        /// <summary> Peeks a state from the stack. A peek returns null if the stack is empty. It doesn't trigger any call.</summary>
+        /// <summary> Peeks a state from the stack. A peek returns null if the stack is empty. It doesn't trigger any call. </summary>
         /// <returns></returns>
         public StateMB<T> PeekState()
         {
@@ -159,7 +159,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
             return state;
         }
 
-        /// <summary> 
+        /// <summary>
         ///     Pops a state from the stack. It triggers OnExitState for thepopped state and if not silent OnEnterState for
         ///     the subsequent stacked state.
         /// </summary>

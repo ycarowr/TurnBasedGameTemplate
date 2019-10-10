@@ -1,6 +1,4 @@
-﻿using TurnBasedGameTemplate.UI;
-
-namespace TurnBasedGameTemplate.UI
+﻿namespace TurnBasedGameTemplate.UI
 {
     public class UiTextPassTurn : UiText
     {

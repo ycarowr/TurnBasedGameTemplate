@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 340d871622354f14484f719e366a3e80, type: 3}
-  m_Name: Configurations
+  m_Name: GameParameters
   m_EditorClassIdentifier: 
   Timers:
-    TimeUntilPreGameEvent: 0.01
-    TimeUntilStartGameEvent: 0.01
-    TimeUntilFirstPlayer: 3
-    TimeUntilFinishTurn: 6
-    TimeUntilStartTurn: 0.01
     TimeUntilAiDoTurn: 2.5
     TimeUntilAiFinishTurn: 3.5
+    TimeUntilFinishTurn: 6
+    TimeUntilFirstPlayer: 3
+    TimeUntilPreGameEvent: 0.01
+    TimeUntilStartGameEvent: 0.01
+    TimeUntilStartTurn: 0.01
   Profiles:
-    UserSeat: 0
     BottomPlayer:
       IsAi: 0
       Seat: 0
     TopPlayer:
       IsAi: 1
       Seat: 2
+    UserSeat: 0

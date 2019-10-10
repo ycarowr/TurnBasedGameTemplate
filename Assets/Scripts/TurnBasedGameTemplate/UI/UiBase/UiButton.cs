@@ -15,7 +15,7 @@ namespace TurnBasedGameTemplate.UI
         protected Button Button { get; set; }
         protected IButtonHandler Handler { get; private set; }
 
-        /// <summary> Add more listeners to the button event.</summary>
+        /// <summary> Add more listeners to the button event. </summary>
         /// <param name="action"></param>
         public void AddListener(UnityAction action)
         {
@@ -28,12 +28,9 @@ namespace TurnBasedGameTemplate.UI
             Button.onClick.AddListener(action);
         }
 
-        public void RemoveListener(UnityAction action)
-        {
-            Button.onClick.RemoveListener(action);
-        }
+        public void RemoveListener(UnityAction action) => Button.onClick.RemoveListener(action);
 
-        /// <summary> Inject a button handler to handle the press event.</summary>
+        /// <summary> Inject a button handler to handle the press event. </summary>
         /// <param name="handler"></param>
         public void SetHandler(IButtonHandler handler)
         {
@@ -42,7 +39,7 @@ namespace TurnBasedGameTemplate.UI
             OnSetHandler(handler);
         }
 
-        /// <summary> Override this function to implement the funcionality.</summary>
+        /// <summary> Override this function to implement the funcionality. </summary>
         /// <param name="handler"></param>
         protected abstract void OnSetHandler(IButtonHandler handler);
     }

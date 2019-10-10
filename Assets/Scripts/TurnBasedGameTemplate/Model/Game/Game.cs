@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.Model.Player;
 using TurnBasedGameTemplate.Model.TurnLogic;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <summary>  Simple concrete Game Implementation.TODO: Consider to break this class down into small partial classes.</summary>
+    /// <summary>  Simple concrete Game Implementation.TODO: Consider to break this class down into small partial classes. </summary>
     public class Game : IGame
     {
         //----------------------------------------------------------------------------------------------------------
 
         #region Constructor
 
-        public Game(List<IPlayer> players, Configurations.Configurations configurations)
+        public Game(List<IPlayer> players, GameParameters gameParameters, Observer gameEvents)
         {
-            Configurations = configurations;
+            GameParameters = gameParameters;
+            GameEvents = gameEvents;
+            
             TurnLogic = new TurnLogic.TurnLogic(players);
             ProcessPreStartGame = new PreStartGameMechanics(this);
             ProcessStartGame = new StartGameMechanics(this);
@@ -31,10 +35,7 @@ namespace TurnBasedGameTemplate.Model.Game
         #endregion
 
 
-        void AddMechanic(BaseGameMechanics mechanic)
-        {
-            Mechanics.Add(mechanic);
-        }
+        void AddMechanic(BaseGameMechanics mechanic) => Mechanics.Add(mechanic);
 
         //----------------------------------------------------------------------------------------------------------
 
@@ -44,7 +45,8 @@ namespace TurnBasedGameTemplate.Model.Game
         public bool IsGameStarted { get; set; }
         public bool IsGameFinished { get; set; }
         public bool IsTurnInProgress { get; set; }
-        public Configurations.Configurations Configurations { get; }
+        public GameParameters GameParameters { get; }
+        public Observer GameEvents { get; }
 
         #region Processes
 
@@ -64,25 +66,13 @@ namespace TurnBasedGameTemplate.Model.Game
 
         #region Execution
 
-        public void PreStartGame()
-        {
-            ProcessPreStartGame.Execute();
-        }
+        public void PreStartGame() => ProcessPreStartGame.Execute();
 
-        public void StartGame()
-        {
-            ProcessStartGame.Execute();
-        }
+        public void StartGame() => ProcessStartGame.Execute();
 
-        public void StartCurrentPlayerTurn()
-        {
-            ProcessStartPlayerTurn.Execute();
-        }
+        public void StartCurrentPlayerTurn() => ProcessStartPlayerTurn.Execute();
 
-        public void FinishCurrentPlayerTurn()
-        {
-            ProcessFinishPlayerTurn.Execute();
-        }
+        public void FinishCurrentPlayerTurn() => ProcessFinishPlayerTurn.Execute();
 
         public void ExecuteAiTurn(PlayerSeat seat)
         {

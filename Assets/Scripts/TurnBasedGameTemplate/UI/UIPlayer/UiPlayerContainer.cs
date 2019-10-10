@@ -10,7 +10,7 @@ namespace TurnBasedGameTemplate.UI
         PlayerSeat Seat { get; }
     }
 
-    /// <summary> Main player UI. It resolves the dependencies accessing the game controller via Singleton.</summary>
+    /// <summary> Main player UI. It resolves the dependencies accessing the game controller via Singleton. </summary>
     public class UiPlayerContainer : MonoBehaviour, IUiPlayer
     {
         public virtual PlayerSeat Seat => PlayerSeat.Top;

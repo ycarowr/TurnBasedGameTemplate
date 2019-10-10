@@ -40,11 +40,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachineMB
 
         /// <summary> Setter for Internal StateMB Machine</summary>
         /// <param name="stateMachine"></param>
-        public void InjectStateMachine(StateMachineMB<T> stateMachine)
-        {
-            Fsm = stateMachine as T;
-//            Log("BaseStateMachine Assigned");
-        }
+        public void InjectStateMachine(StateMachineMB<T> stateMachine) => Fsm = stateMachine as T;
 
 
         void Log(string log, string colorName = "black")

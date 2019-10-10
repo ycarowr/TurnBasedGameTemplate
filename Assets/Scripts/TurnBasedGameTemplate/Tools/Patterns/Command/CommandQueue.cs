@@ -35,9 +35,6 @@ namespace TurnBasedGameTemplate.Tools.Patterns.Command
             return command;
         }
 
-        protected virtual void OnEmptyQueue()
-        {
-            OnEmpty?.Invoke();
-        }
+        protected virtual void OnEmptyQueue() => OnEmpty?.Invoke();
     }
 }

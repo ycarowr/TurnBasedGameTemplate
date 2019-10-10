@@ -1,34 +1,19 @@
-﻿using TurnBasedGameTemplate.GameData;
+﻿using TurnBasedGameTemplate.Configurations;
+using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
-    /// <summary> Holds the Game flow when a match is Finished.</summary>
+    /// <summary> Holds the Game flow when a match is Finished. </summary>
     public class EndBattleState : BaseBattleState, IFinishGame
     {
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Constructor
-
-        public EndBattleState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations) : base(fsm, gameData,
-            configurations)
+        public EndBattleState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
+            base(fsm, gameData, gameParameters, gameEvents)
         {
         }
 
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Game Events
-
-        void IFinishGame.OnFinishGame(IPlayer winner)
-        {
-            Fsm.EndBattle();
-        }
-
-        #endregion
-
-        //----------------------------------------------------------------------------------------------------------
+        void IFinishGame.OnFinishGame(IPlayer winner) => Fsm.EndBattle();
     }
 }

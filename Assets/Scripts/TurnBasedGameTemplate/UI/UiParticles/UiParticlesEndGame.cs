@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
-    public class UiParticlesEndGame : UI.UiParticles, IFinishGame
+    public class UiParticlesEndGame : UiParticles, IFinishGame
     {
         const float DelayToNotify = 1f;
         [SerializeField] PlayerSeat seat;

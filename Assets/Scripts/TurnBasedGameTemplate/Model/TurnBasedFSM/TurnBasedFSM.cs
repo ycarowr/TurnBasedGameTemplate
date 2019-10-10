@@ -1,28 +1,29 @@
 ﻿using System.Collections.Generic;
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.GameController;
 using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 using TurnBasedGameTemplate.Tools.Patterns.StateMachine;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
     public class TurnBasedFsm : BaseStateMachine
     {
-        //----------------------------------------------------------------------------------------------------------
-
         #region Properties
 
-        /// <summary>  Register with all players states.</summary>
+        /// <summary>  Register with all players states. </summary>
         readonly Dictionary<IPlayer, TurnState> actorsRegister =
             new Dictionary<IPlayer, TurnState>();
 
-        /// <summary>  All Game Data.</summary>
+        /// <summary>  All Game Data. </summary>
         IGameData GameData { get; }
 
-        /// <summary>  MonoBehavior which holds this FSM.</summary>
+        /// <summary>  MonoBehavior which holds this FSM. </summary>
         public new IGameController Handler { get; }
 
-        Configurations.Configurations Configurations { get; }
+        GameParameters GameParameters { get; }
+        Observer GameEvents { get; }
 
         #endregion
 
@@ -30,10 +31,11 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Initialization
 
-        public TurnBasedFsm(IGameController handler, IGameData gameData, Configurations.Configurations configurations) :
+        public TurnBasedFsm(IGameController handler, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
             base(handler)
         {
-            Configurations = configurations;
+            GameParameters = gameParameters;
+            GameEvents = gameEvents;
             Handler = handler;
             GameData = gameData;
             Initialize();
@@ -42,10 +44,10 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         protected override void OnBeforeInitialize()
         {
             //create states
-            var bottom = new BottomPlayerState(this, GameData, Configurations);
-            var top = new TopPlayerState(this, GameData, Configurations);
-            var start = new StartBattleState(this, GameData, Configurations);
-            var end = new EndBattleState(this, GameData, Configurations);
+            var bottom = new BottomPlayerState(this, GameData, GameParameters, GameEvents);
+            var top = new TopPlayerState(this, GameData, GameParameters, GameEvents);
+            var start = new StartBattleState(this, GameData, GameParameters, GameEvents);
+            var end = new EndBattleState(this, GameData, GameParameters, GameEvents);
 
             //register all states
             RegisterState(bottom);
@@ -54,13 +56,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             RegisterState(end);
         }
 
-        /// <summary>  Register a player and his respective turn state.</summary>
-        /// <param name="player"></param>
-        /// <param name="state"></param>
-        public void RegisterPlayerState(IPlayer player, TurnState state)
-        {
-            actorsRegister.Add(player, state);
-        }
+        /// <summary>  Register a player and his respective turn state. </summary>
+        public void RegisterPlayerState(IPlayer player, TurnState state) => actorsRegister.Add(player, state);
 
         #endregion
 
@@ -68,17 +65,14 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Operations
 
-        /// <summary>  Returns the player controller according to its registered player.</summary>
-        /// <param name="player"></param>
-        /// <returns></returns>
-        public TurnState GetPlayerController(IPlayer player)
-        {
-            return IsInitialized && actorsRegister.ContainsKey(player) ? actorsRegister[player] : null;
-        }
+        /// <summary>  Returns the player controller according to its registered player. </summary>
+        public TurnState GetPlayerController(IPlayer player) =>
+            IsInitialized && actorsRegister.ContainsKey(player) ? actorsRegister[player] : null;
 
-        /// <summary>  Returns a the player turn according to the position. Null if there isn't player registered with the argument.</summary>
-        /// <param name="seat"></param>
-        /// <returns></returns>
+        /// <summary>
+        ///     Returns a the player turn according to the position. Null if there isn't player registered with the
+        ///     argument.
+        /// </summary>
         public TurnState GetPlayerController(PlayerSeat seat)
         {
             foreach (var player in actorsRegister.Keys)
@@ -88,7 +82,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             return null;
         }
 
-        /// <summary>  Call this method to Push Start Battle State and begin the match.</summary>
+        /// <summary>  Call this method to Push Start Battle State and begin the match. </summary>
         public void StartBattle()
         {
             if (!IsInitialized)
@@ -98,7 +92,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             PushState<StartBattleState>();
         }
 
-        /// <summary>  Call this method to Push End Battle State and Finish the match.</summary>
+        /// <summary>  Call this method to Push End Battle State and Finish the match. </summary>
         public void EndBattle()
         {
             if (!IsInitialized)

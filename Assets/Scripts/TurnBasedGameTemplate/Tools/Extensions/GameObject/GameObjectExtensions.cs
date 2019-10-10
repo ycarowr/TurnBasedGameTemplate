@@ -1,25 +1,21 @@
 ﻿namespace TurnBasedGameTemplate.Tools.Extensions.GameObject
 {
-    /// <summary> 
+    /// <summary>
     ///     Extension methods for UnityEngine.GameObject.Ref:
     ///     https://github.com/mminer/unity-extensions/blob/master/GameObjectExtensions.cs
     /// </summary>
     public static class GameObjectExtensions
     {
-        /// <summary> Gets a component attached to the given game object.If one isn't found, a new one is attached and returned.</summary>
+        /// <summary> Gets a component attached to the given game object.If one isn't found, a new one is attached and returned. </summary>
         /// <param name="gameObject">Game object.</param>
         /// <returns>Previously or newly attached component.</returns>
-        public static T GetOrAddComponent<T>(this UnityEngine.GameObject gameObject) where T : UnityEngine.Component
-        {
-            return gameObject.GetComponent<T>() ?? gameObject.AddComponent<T>();
-        }
+        public static T GetOrAddComponent<T>(this UnityEngine.GameObject gameObject) where T : UnityEngine.Component =>
+            gameObject.GetComponent<T>() ?? gameObject.AddComponent<T>();
 
-        /// <summary> Checks whether a game object has a component of type T attached.</summary>
+        /// <summary> Checks whether a game object has a component of type T attached. </summary>
         /// <param name="gameObject">Game object.</param>
         /// <returns>True when component is attached.</returns>
-        public static bool HasComponent<T>(this UnityEngine.GameObject gameObject) where T : UnityEngine.Component
-        {
-            return gameObject.GetComponent<T>() != null;
-        }
+        public static bool HasComponent<T>(this UnityEngine.GameObject gameObject) where T : UnityEngine.Component =>
+            gameObject.GetComponent<T>() != null;
     }
 }

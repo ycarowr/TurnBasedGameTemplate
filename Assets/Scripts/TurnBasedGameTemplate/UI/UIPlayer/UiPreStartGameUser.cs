@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.UI;
+using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
     [RequireComponent(typeof(IUiUserInput))]
     [RequireComponent(typeof(IUiPlayer))]
-    public class UiPreStartGameUser : UiListener, IPreGameStart
+    public class UiPreStartGameUser : UiGameEventListener, IPreGameStart
     {
         IUiUserInput UserInput { get; set; }
         IUiPlayer Ui { get; set; }

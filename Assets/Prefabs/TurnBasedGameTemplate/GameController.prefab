@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3325509906922637626}
   - component: {fileID: 149047365095963027}
   - component: {fileID: 6445638022965441663}
-  - component: {fileID: 3146559047680944655}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -47,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   isSilent: 1
-  configurations: {fileID: 11400000, guid: abfc1c0d7b7d6cf4892d3fed0462d2cb, type: 2}
+  gameParameters: {fileID: 11400000, guid: abfc1c0d7b7d6cf4892d3fed0462d2cb, type: 2}
+  GameEvents: {fileID: 11400000, guid: ca778f7ed18d6db49bf72d270a0e6b01, type: 2}
 --- !u!114 &6445638022965441663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,19 +62,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
   isSilent: 1
-  configurations: {fileID: 11400000, guid: abfc1c0d7b7d6cf4892d3fed0462d2cb, type: 2}
-  currentTeams: {fileID: 11400000, guid: e202416467539d44996618c9f8e5daef, type: 2}
---- !u!114 &3146559047680944655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3325509906922637627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912d5c196d24f94479b204e56d1b592b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 0
-  isSilent: 1
+  gameParameters: {fileID: 11400000, guid: abfc1c0d7b7d6cf4892d3fed0462d2cb, type: 2}
+  gameEvents: {fileID: 11400000, guid: ca778f7ed18d6db49bf72d270a0e6b01, type: 2}

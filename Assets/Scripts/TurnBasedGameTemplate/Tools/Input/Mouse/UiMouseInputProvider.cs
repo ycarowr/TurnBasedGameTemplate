@@ -12,19 +12,14 @@ namespace TurnBasedGameTemplate.Tools.Input.Mouse
         public Vector2 MousePosition => UnityEngine.Input.mousePosition;
         public bool IsTracking { get; private set; }
 
-        public void StartTracking()
-        {
-            IsTracking = true;
-        }
+        public void StartTracking() => IsTracking = true;
 
-        public void StopTracking()
-        {
-            IsTracking = false;
-        }
+        public void StopTracking() => IsTracking = false;
 
         void Awake()
         {
             // Can be used with PhysicsRaycaster2D and Collider2D too.
+            // Camera.main searches for the tag Main Camera.
             if (Camera.main.GetComponent<PhysicsRaycaster>() == null)
                 throw new Exception(GetType() + " needs an " + typeof(PhysicsRaycaster) + " on the MainCamera");
         }

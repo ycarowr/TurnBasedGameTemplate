@@ -23,9 +23,6 @@ namespace TurnBasedGameTemplate.UI
             SetText(defaultText);
         }
 
-        public virtual void SetText(string text)
-        {
-            TmProText.text = text;
-        }
+        public virtual void SetText(string text) => TmProText.text = text;
     }
 }

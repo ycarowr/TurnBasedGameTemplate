@@ -10,10 +10,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachine
         readonly Stack<IState> stack = new Stack<IState>();
 
         /// <summary>  Constructor for the state machine. A handler is optional. </summary>
-        protected BaseStateMachine(IStateMachineHandler handler = null)
-        {
-            Handler = handler;
-        }
+        protected BaseStateMachine(IStateMachineHandler handler = null) => Handler = handler;
 
         /// <summary>  Boolean that indicates whether the FSM has been initialized or not. </summary>
         public bool IsInitialized { get; protected set; }
@@ -56,16 +53,10 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachine
         }
 
         /// <summary>  Update the state on the top of the stack. </summary>
-        public void Update()
-        {
-            Current?.OnUpdate();
-        }
+        public void Update() => Current?.OnUpdate();
 
         /// <summary>  Checks if a state is the current state. </summary>
-        public bool IsCurrent<T>() where T : IState
-        {
-            return Current?.GetType() == typeof(T);
-        }
+        public bool IsCurrent<T>() where T : IState => Current?.GetType() == typeof(T);
 
         /// <summary>  Checks if a state is the current state. </summary>
         public bool IsCurrent(IState state)
@@ -99,10 +90,7 @@ namespace TurnBasedGameTemplate.Tools.Patterns.StateMachine
         }
 
         /// <summary>  Peeks a state from the stack. A peek returns null if the stack is empty. It doesn't trigger any call. </summary>
-        public IState PeekState()
-        {
-            return stack.Count > 0 ? stack.Peek() : null;
-        }
+        public IState PeekState() => stack.Count > 0 ? stack.Peek() : null;
 
         /// <summary>  Pops a state from the stack. </summary>
         public void PopState(bool isSilent = false)

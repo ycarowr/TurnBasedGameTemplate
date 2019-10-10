@@ -9,15 +9,11 @@ namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents.Editor
         readonly int sampleArgument = 1123412351;
         readonly int sampleArgument2 = 812391722;
         readonly int sampleArgument3 = 817239812;
-        GameEvents GameEvents { get; set; }
+        GameEventsMB GameEventsMb { get; set; }
 
         //--------------------------------------------------------------------------------------------------------------
 
-        void ISampleEvent1.OnISampleEvent1(int a)
-        {
-            //check if received parameter is the same as sent
-            Assert.True(a == sampleArgument);
-        }
+        void ISampleEvent1.OnISampleEvent1(int a) => Assert.True(a == sampleArgument);
 
         public void OnISampleEvent2(int a, int b)
         {
@@ -29,38 +25,31 @@ namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents.Editor
         [SetUp]
         public void Setup()
         {
-            if (!GameEvents)
+            if (!GameEventsMb)
             {
                 // create observer
-                GameEvents = new GameObject("GameEvents").AddComponent<GameEvents>();
+                GameEventsMb = new GameObject("GameEvents").AddComponent<GameEventsMB>();
 
                 //subscribe
-                GameEvents.AddListener(this);
+                GameEventsMb.AddListener(this);
             }
         }
 
         [Test]
-        public void Dispatch1()
-        {
-            //dispatch the parameter
-            GameEvents.Notify<ISampleEvent1>(j => j.OnISampleEvent1(sampleArgument));
-        }
+        public void Dispatch1() => GameEventsMb.Notify<ISampleEvent1>(j => j.OnISampleEvent1(sampleArgument));
 
         [Test]
-        public void Dispatch2()
-        {
-            //dispatch parameters
-            GameEvents.Notify<ISampleEvent2>(j => j.OnISampleEvent2(sampleArgument2, sampleArgument3));
-        }
+        public void Dispatch2() =>
+            GameEventsMb.Notify<ISampleEvent2>(j => j.OnISampleEvent2(sampleArgument2, sampleArgument3));
     }
 
-    /// <summary> Broadcast of the event to the Listeners.</summary>
+    /// <summary> Broadcast of the event to the Listeners. </summary>
     public interface ISampleEvent1 : ISubject
     {
         void OnISampleEvent1(int a);
     }
 
-    /// <summary> Broadcast of the event to the Listeners.</summary>
+    /// <summary> Broadcast of the event to the Listeners. </summary>
     public interface ISampleEvent2 : ISubject
     {
         void OnISampleEvent2(int a, int b);

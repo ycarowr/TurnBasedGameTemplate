@@ -3,7 +3,7 @@ using TurnBasedGameTemplate.Model.Player;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <summary> Finish Game Step Implementation.</summary>
+    /// <summary> Finish Game Step Implementation. </summary>
     public class FinishGameMechanics : BaseGameMechanics
     {
         public FinishGameMechanics(IGame game) : base(game)
@@ -26,11 +26,8 @@ namespace TurnBasedGameTemplate.Model.Game
         {
         }
 
-        /// <summary> Dispatch end game to the listeners.</summary>
-        /// <param name="winner"></param>
-        void OnGameFinished(IPlayer winner)
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.Notify<IFinishGame>(i => i.OnFinishGame(winner));
-        }
+        /// <summary> Dispatch end game to the listeners. </summary>
+        void OnGameFinished(IPlayer winner) =>
+            GameEvents.Notify<IFinishGame>(i => i.OnFinishGame(winner));
     }
 }

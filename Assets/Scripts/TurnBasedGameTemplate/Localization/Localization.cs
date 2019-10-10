@@ -13,9 +13,6 @@ namespace TurnBasedGameTemplate.Localization
             foreach (var id in Enum.GetValues(typeof(LocalizationIds))) data.Add((LocalizationIds) id, id.ToString());
         }
 
-        public string Get(LocalizationIds id)
-        {
-            return data[id];
-        }
+        public string Get(LocalizationIds id) => data[id];
     }
 }

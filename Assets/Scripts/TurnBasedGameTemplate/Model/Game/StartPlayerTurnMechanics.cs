@@ -3,14 +3,14 @@ using TurnBasedGameTemplate.Model.Player;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <summary> Start Current player Turn Implementation.</summary>
+    /// <summary> Start Current player Turn Implementation. </summary>
     public class StartPlayerTurnMechanics : BaseGameMechanics
     {
         public StartPlayerTurnMechanics(IGame game) : base(game)
         {
         }
 
-        /// <summary> Start current player turn logic.</summary>
+        /// <summary> Start current player turn logic. </summary>
         public void Execute()
         {
             if (Game.IsTurnInProgress)
@@ -28,11 +28,10 @@ namespace TurnBasedGameTemplate.Model.Game
             OnStartedCurrentPlayerTurn(Game.TurnLogic.CurrentPlayer);
         }
 
-        /// <summary> Dispatch start current player turn to the listeners.</summary>
+        /// <summary> Dispatch start current player turn to the listeners. </summary>
         /// <param name="currentPlayer"></param>
-        void OnStartedCurrentPlayerTurn(IPlayer currentPlayer)
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.Notify<IStartPlayerTurn>(i => i.OnStartPlayerTurn(currentPlayer));
-        }
+        void OnStartedCurrentPlayerTurn(IPlayer currentPlayer) =>
+            GameEvents.Notify<IStartPlayerTurn>(i =>
+                i.OnStartPlayerTurn(currentPlayer));
     }
 }

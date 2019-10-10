@@ -4,8 +4,7 @@ using TurnBasedGameTemplate.Model.Player;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <inheritdoc />
-    /// <summary> Pre Start Game Step Implementation.</summary>
+    /// <summary> Pre Start Game Step Implementation. </summary>
     public class PreStartGameMechanics : BaseGameMechanics
     {
         public PreStartGameMechanics(IGame game) : base(game)
@@ -22,10 +21,7 @@ namespace TurnBasedGameTemplate.Model.Game
         }
 
         /// <summary> Dispatch pre start game event to the listeners</summary>
-        /// <param name="players"></param>
-        void OnGamePreStarted(List<IPlayer> players)
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.Notify<IPreGameStart>(i => i.OnPreGameStart(players));
-        }
+        void OnGamePreStarted(List<IPlayer> players) =>
+            GameEvents.Notify<IPreGameStart>(i => i.OnPreGameStart(players));
     }
 }

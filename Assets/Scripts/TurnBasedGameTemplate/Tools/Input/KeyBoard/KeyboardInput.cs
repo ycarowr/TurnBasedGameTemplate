@@ -6,24 +6,15 @@ namespace TurnBasedGameTemplate.Tools.Input.KeyBoard
     public class KeyboardInput : MonoBehaviour, IKeyboardInput
     {
         public bool IsTracking { get; private set; }
-
-        [field: SerializeField]
-        [field: Tooltip("The Keyboard key")]
-        public KeyCode Key { get; set; }
-
+        [SerializeField] KeyCode key;
+        public KeyCode Key => key;
         public Action OnKey { get; set; } = () => { };
         public Action OnKeyDown { get; set; } = () => { };
         public Action OnKeyUp { get; set; } = () => { };
 
-        public void StartTracking()
-        {
-            IsTracking = true;
-        }
+        public void StartTracking() => IsTracking = true;
 
-        public void StopTracking()
-        {
-            IsTracking = false;
-        }
+        public void StopTracking() => IsTracking = false;
 
         void Update()
         {
@@ -42,9 +33,6 @@ namespace TurnBasedGameTemplate.Tools.Input.KeyBoard
                 OnKeyUp?.Invoke();
         }
 
-        public void SetKey(KeyCode keyCode)
-        {
-            Key = keyCode;
-        }
+        public void SetKey(KeyCode keyCode) => key = keyCode;
     }
 }

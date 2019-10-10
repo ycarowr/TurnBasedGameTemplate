@@ -30,10 +30,7 @@ namespace TurnBasedGameTemplate.Tools.Extensions.List.Editor
             Assert.False(list.Contains(notContainedItem));
 
             //add 7 in front of 9
-            void addNotContained()
-            {
-                list.AddBeforeOf(notContainedItem, item);
-            }
+            void addNotContained() => list.AddBeforeOf(notContainedItem, item);
 
             Assert.Throws<ArgumentOutOfRangeException>(addNotContained);
         }
@@ -70,10 +67,7 @@ namespace TurnBasedGameTemplate.Tools.Extensions.List.Editor
         {
             var list = new List<int>();
 
-            void GetRandom()
-            {
-                list.RandomItem();
-            }
+            void GetRandom() => list.RandomItem();
 
             Assert.Throws<IndexOutOfRangeException>(GetRandom);
         }

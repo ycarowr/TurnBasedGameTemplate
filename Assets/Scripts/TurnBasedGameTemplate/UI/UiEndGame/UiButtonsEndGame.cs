@@ -1,5 +1,4 @@
-﻿using TurnBasedGameTemplate.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
@@ -10,10 +9,7 @@ namespace TurnBasedGameTemplate.UI
     {
         IRestartGameHandler PlayerHandler { get; set; }
 
-        void UiButtonRestart.IPressRestart.PressRestart()
-        {
-            PlayerHandler.RestartGame();
-        }
+        void UiButtonRestart.IPressRestart.PressRestart() => PlayerHandler.RestartGame();
 
         void Awake()
         {

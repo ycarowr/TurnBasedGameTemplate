@@ -1,10 +1,10 @@
 ﻿using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
+using UnityEngine;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <inheritdoc />
-    /// <summary> Start Game Step Implementation.</summary>
+    /// <summary> Start Game Step Implementation. </summary>
     public class StartGameMechanics : BaseGameMechanics
     {
         public StartGameMechanics(IGame game) : base(game)
@@ -24,11 +24,7 @@ namespace TurnBasedGameTemplate.Model.Game
             OnGameStarted(Game.TurnLogic.StarterPlayer);
         }
 
-        /// <summary> Dispatch start game event to the listeners.</summary>
-        /// <param name="starterPlayer"></param>
-        void OnGameStarted(IPlayer starterPlayer)
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.Notify<IStartGame>(i => i.OnStartGame(starterPlayer));
-        }
+        /// <summary> Dispatch start game event to the listeners. </summary>
+        void OnGameStarted(IPlayer starterPlayer) => GameEvents.Notify<IStartGame>(i => i.OnStartGame(starterPlayer));
     }
 }

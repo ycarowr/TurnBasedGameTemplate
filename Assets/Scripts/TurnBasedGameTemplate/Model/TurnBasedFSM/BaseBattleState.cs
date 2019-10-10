@@ -1,3 +1,4 @@
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Tools.Patterns.Observer;
@@ -5,7 +6,7 @@ using TurnBasedGameTemplate.Tools.Patterns.StateMachine;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
-    /// <summary> 
+    /// <summary>
     ///     The base of all the battle states. States work as controllers to provide access to a funcionality in the
     ///     model.
     /// </summary>
@@ -15,14 +16,15 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Constructor
 
-        protected BaseBattleState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations)
+        protected BaseBattleState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents)
         {
             Fsm = fsm;
             GameData = gameData;
-            Configurations = configurations;
-
+            GameParameters = gameParameters;
+            GameEvents = gameEvents;
+            
             //Subscribe game events 
-            Tools.Patterns.GameEvents.GameEvents.Instance.AddListener(this);
+            GameEvents.AddListener(this);
             IsInitialized = true;
         }
 
@@ -32,7 +34,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Properties
 
-        protected Configurations.Configurations Configurations { get; }
+        protected GameParameters GameParameters { get; }
+        protected Observer GameEvents { get; }
         protected IGameData GameData { get; }
         public TurnBasedFsm Fsm { get; set; }
         public bool IsInitialized { get; }
@@ -46,8 +49,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         public virtual void OnClear()
         {
             //Unsubscribe game events
-            if (Tools.Patterns.GameEvents.GameEvents.Instance)
-                Tools.Patterns.GameEvents.GameEvents.Instance.RemoveListener(this);
+            GameEvents.RemoveListener(this);
         }
 
         public virtual void OnInitialize()
@@ -76,10 +78,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             Fsm.PushState(nextState);
         }
 
-        void IRestartGame.OnRestart()
-        {
-            OnClear();
-        }
+        void IRestartGame.OnRestart() => OnClear();
 
         #endregion
 

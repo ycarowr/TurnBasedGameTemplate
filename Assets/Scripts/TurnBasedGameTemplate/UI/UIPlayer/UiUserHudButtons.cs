@@ -1,5 +1,4 @@
-﻿using TurnBasedGameTemplate.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
@@ -39,9 +38,6 @@ namespace TurnBasedGameTemplate.UI
 
         //----------------------------------------------------------------------------------------------------------
 
-        void DisableInput()
-        {
-            UserInput.Disable();
-        }
+        void DisableInput() => UserInput.Disable();
     }
 }

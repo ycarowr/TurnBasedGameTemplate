@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
-    public class UiParticlesTurn : UI.UiParticles, IStartPlayerTurn
+    public class UiParticlesTurn : UiParticles, IStartPlayerTurn
     {
         [SerializeField] PlayerSeat seat;
 

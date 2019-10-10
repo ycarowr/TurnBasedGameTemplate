@@ -5,15 +5,13 @@ using Random = UnityEngine.Random;
 
 namespace TurnBasedGameTemplate.Model.TurnLogic
 {
-    /// <summary> This class decides which player goes first and which player goes next.</summary>
+    /// <summary> This class decides which player goes first and which player goes next. </summary>
     public class TurnLogic : ITurnLogic
     {
         #region Constructor
 
         public TurnLogic(
-            List<IPlayer> players,
-            PlayerSeat start = PlayerSeat.Bottom,
-            PlayerSeat current = PlayerSeat.Bottom)
+            List<IPlayer> players)
         {
             if (players == null)
                 throw new ArgumentException("A Null List is not a valid argument to Create a TurnLogic");
@@ -22,8 +20,6 @@ namespace TurnBasedGameTemplate.Model.TurnLogic
 
             Players = players;
             TurnCount = 0;
-            StarterPlayerSeat = start;
-            CurrentPlayerSeat = current;
         }
 
         #endregion
@@ -46,16 +42,13 @@ namespace TurnBasedGameTemplate.Model.TurnLogic
 
         public int QuantPlayers => Players.Count;
 
-        bool ITurnLogic.IsMyTurn(IPlayer player)
-        {
-            return CurrentPlayer == player;
-        }
+        bool ITurnLogic.IsMyTurn(IPlayer player) => CurrentPlayer == player;
 
         #endregion
 
         #region Operations
 
-        /// <summary> Assign next player to the current player.</summary>
+        /// <summary> Assign next player to the current player. </summary>
         public void UpdateCurrentPlayer()
         {
             //increment turn count
@@ -69,8 +62,7 @@ namespace TurnBasedGameTemplate.Model.TurnLogic
             CurrentPlayerSeat = NextPlayerSeat;
         }
 
-        /// <inheritdoc />
-        /// <summary> Decides which player goes first Randomly.</summary>
+        /// <summary> Decides which player goes first Randomly. </summary>
         public void DecideStarterPlayer()
         {
             var randomIndex = Random.Range(0, QuantPlayers);
@@ -79,10 +71,9 @@ namespace TurnBasedGameTemplate.Model.TurnLogic
             CurrentPlayerSeat = StarterPlayerSeat;
         }
 
-        public IPlayer GetOpponent(IPlayer player)
-        {
-            return player.Seat == PlayerSeat.Bottom ? GetPlayer(PlayerSeat.Top) : GetPlayer(PlayerSeat.Bottom);
-        }
+        public IPlayer GetOpponent(IPlayer player) => player.Seat == PlayerSeat.Bottom
+            ? GetPlayer(PlayerSeat.Top)
+            : GetPlayer(PlayerSeat.Bottom);
 
         public IPlayer GetPlayer(PlayerSeat seat)
         {
@@ -93,15 +84,9 @@ namespace TurnBasedGameTemplate.Model.TurnLogic
             return null;
         }
 
-        public void SetCurrentSeat(PlayerSeat current)
-        {
-            CurrentPlayerSeat = current;
-        }
+        public void SetCurrentSeat(PlayerSeat current) => CurrentPlayerSeat = current;
 
-        public void SetStarterSeat(PlayerSeat first)
-        {
-            StarterPlayerSeat = first;
-        }
+        public void SetStarterSeat(PlayerSeat first) => StarterPlayerSeat = first;
 
         #endregion
     }

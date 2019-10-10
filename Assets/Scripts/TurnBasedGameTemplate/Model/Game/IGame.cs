@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.Model.Player;
 using TurnBasedGameTemplate.Model.TurnLogic;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <summary> A game interface.</summary>
+    /// <summary> A game interface. </summary>
     public interface IGame
     {
-        Configurations.Configurations Configurations { get; }
-
+        GameParameters GameParameters { get; }
+        Observer GameEvents { get; }
         List<BaseGameMechanics> Mechanics { get; }
 
         List<IPlayer> Players { get; }

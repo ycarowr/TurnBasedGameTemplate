@@ -2,7 +2,7 @@
 
 namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents
 {
-    public class GameEvents : Observer<GameEvents>
+    public class GameEventsMB : Observer<GameEventsMB>
     {
     }
 }

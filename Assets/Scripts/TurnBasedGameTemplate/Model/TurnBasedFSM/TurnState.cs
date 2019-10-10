@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.GameData;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
@@ -12,8 +14,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Constructor
 
-        protected TurnState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations) : base(fsm, gameData,
-            configurations)
+        protected TurnState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
+            base(fsm, gameData, gameParameters, gameEvents)
         {
             var game = GameData.RuntimeGame;
 
@@ -52,7 +54,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
                 NextTurn();
         }
 
-        /// <summary> Switches the turn according to the next player.</summary>
+        /// <summary> Switches the turn according to the next player. </summary>
         void NextTurn()
         {
             var game = GameData.RuntimeGame;
@@ -84,7 +86,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             RestartTimeouts();
         }
 
-        /// <summary> Clear the state to the initial configuration and stops all the internal routines.</summary>
+        /// <summary> Clear the state to the initial configuration and stops all the internal routines. </summary>
         public override void OnClear()
         {
             base.OnClear();
@@ -102,23 +104,20 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             TickRoutine = null;
         }
 
-        /// <summary> Check if the player can pass the turn and passes the turn to the next player.</summary>
+        /// <summary> Check if the player can pass the turn and passes the turn to the next player. </summary>
         public bool PassTurn()
         {
             GameData.RuntimeGame.FinishCurrentPlayerTurn();
             return true;
         }
-
-        //----------------------------------------------------------------------------------------------------------
-
+        
         #endregion
 
         //----------------------------------------------------------------------------------------------------------
 
         #region Coroutines
 
-        /// <summary> Finishes the player turn.</summary>
-        /// <returns></returns>
+        /// <summary> Finishes the player turn. </summary>
         protected virtual IEnumerator TimeOut()
         {
             //disable the timeout for player
@@ -132,17 +131,16 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             }
             else
             {
-                yield return new WaitForSeconds(Configurations.Timers.TimeUntilFinishTurn);
+                yield return new WaitForSeconds(GameParameters.Timers.TimeUntilFinishTurn);
             }
 
             PassTurn();
         }
 
-        /// <summary> Starts the player turn.</summary>
-        /// <returns></returns>
+        /// <summary> Starts the player turn. </summary>
         protected virtual IEnumerator StartTurn()
         {
-            yield return new WaitForSeconds(Configurations.Timers.TimeUntilStartTurn);
+            yield return new WaitForSeconds(GameParameters.Timers.TimeUntilStartTurn);
             GameData.RuntimeGame.StartCurrentPlayerTurn();
         }
 

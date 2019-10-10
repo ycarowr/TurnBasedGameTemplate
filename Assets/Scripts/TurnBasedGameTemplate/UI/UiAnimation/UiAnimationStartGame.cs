@@ -4,7 +4,7 @@ using TurnBasedGameTemplate.Model.Player;
 
 namespace TurnBasedGameTemplate.UI
 {
-    public class UiAnimationStartGame : UI.UiAnimation, IStartGame
+    public class UiAnimationStartGame : UiAnimation, IStartGame
     {
         const float DelayToNotify = 0.75f;
         TMP_Text Text;

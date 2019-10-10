@@ -1,6 +1,6 @@
 ﻿namespace TurnBasedGameTemplate.Model.Player
 {
-    /// <summary> Finish turn player mechanics.</summary>
+    /// <summary> Finish turn player mechanics. </summary>
     public class FinishTurnMechanics : BasePlayerMechanics
     {
         public FinishTurnMechanics(IPlayer player) : base(player)

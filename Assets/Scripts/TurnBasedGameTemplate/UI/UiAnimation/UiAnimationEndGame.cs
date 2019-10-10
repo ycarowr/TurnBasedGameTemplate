@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
-    public class UiAnimationEndGame : UI.UiAnimation, IFinishGame
+    public class UiAnimationEndGame : UiAnimation, IFinishGame
     {
         const float DelayToNotify = 1f;
         [SerializeField] LocalizationIds id;

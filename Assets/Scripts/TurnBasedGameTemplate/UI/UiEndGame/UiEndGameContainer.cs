@@ -2,7 +2,7 @@
 using TurnBasedGameTemplate.GameController;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.UI;
+using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
@@ -12,24 +12,15 @@ namespace TurnBasedGameTemplate.UI
         void RestartGame();
     }
 
-    /// <summary> End game HUD. Solves model dependencies accessing the game controller via Singleton.</summary>
+    /// <summary> End game HUD. Solves model dependencies accessing the game controller via Singleton. </summary>
     [RequireComponent(typeof(IUiUserInput))]
-    public class UiEndGameContainer : UiListener,
+    public class UiEndGameContainer : UiGameEventListener,
         IRestartGameHandler,
         IFinishGame,
         IStartGame,
         IUiController
     {
-        //----------------------------------------------------------------------------------------------------------
-
-        void IRestartGameHandler.RestartGame()
-        {
-            Controller.RestartGameImmediately();
-        }
-
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Unity Callbacks
+        void IRestartGameHandler.RestartGame() => Controller.RestartGameImmediately();
 
         void Awake()
         {
@@ -40,37 +31,18 @@ namespace TurnBasedGameTemplate.UI
             gameObject.AddComponent<UiButtonsEndGame>();
         }
 
-        #endregion
-
         IEnumerator EnableInput()
         {
             yield return new WaitForSeconds(DelayToEnable);
             UserInput.Enable();
         }
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Properties
 
         const float DelayToEnable = 1f;
         IUiUserInput UserInput { get; set; }
         public IGameController Controller => GameController.GameController.Instance;
 
-        #endregion
+        void IFinishGame.OnFinishGame(IPlayer winner) => StartCoroutine(EnableInput());
 
-        //----------------------------------------------------------------------------------------------------------
-
-        #region Game Events
-
-        void IFinishGame.OnFinishGame(IPlayer winner)
-        {
-            StartCoroutine(EnableInput());
-        }
-
-        void IStartGame.OnStartGame(IPlayer starter)
-        {
-            UserInput.Disable();
-        }
-
-        #endregion
+        void IStartGame.OnStartGame(IPlayer starter) => UserInput.Disable();
     }
 }

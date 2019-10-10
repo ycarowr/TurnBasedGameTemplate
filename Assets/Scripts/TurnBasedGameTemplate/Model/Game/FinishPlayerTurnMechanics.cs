@@ -3,8 +3,7 @@ using TurnBasedGameTemplate.Model.Player;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
-    /// <inheritdoc />
-    /// <summary> Finish Current player Turn Implementation.</summary>
+    /// <summary> Finish Current player Turn Implementation. </summary>
     public class FinishPlayerTurnMechanics : BaseGameMechanics
     {
         public FinishPlayerTurnMechanics(IGame game) : base(game)
@@ -12,7 +11,7 @@ namespace TurnBasedGameTemplate.Model.Game
         }
 
 
-        /// <summary> Finish player turn logic.</summary>
+        /// <summary> Finish player turn logic. </summary>
         public void Execute()
         {
             if (!Game.IsTurnInProgress) return;
@@ -24,11 +23,9 @@ namespace TurnBasedGameTemplate.Model.Game
             OnFinishedCurrentPlayerTurn(Game.TurnLogic.CurrentPlayer);
         }
 
-        /// <summary> Dispatch to the listeners.</summary>
-        /// <param name="currentPlayer"></param>
-        void OnFinishedCurrentPlayerTurn(IPlayer currentPlayer)
-        {
-            Tools.Patterns.GameEvents.GameEvents.Instance.Notify<IFinishPlayerTurn>(i => i.OnFinishPlayerTurn(currentPlayer));
-        }
+        /// <summary> Dispatch to the listeners. </summary>
+        void OnFinishedCurrentPlayerTurn(IPlayer currentPlayer) =>
+            GameEvents.Notify<IFinishPlayerTurn>(i =>
+                i.OnFinishPlayerTurn(currentPlayer));
     }
 }

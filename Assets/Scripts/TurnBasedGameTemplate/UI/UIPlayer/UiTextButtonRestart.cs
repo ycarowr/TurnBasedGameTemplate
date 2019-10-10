@@ -1,5 +1,4 @@
 ﻿using TurnBasedGameTemplate.Localization;
-using TurnBasedGameTemplate.UI;
 
 namespace TurnBasedGameTemplate.UI
 {

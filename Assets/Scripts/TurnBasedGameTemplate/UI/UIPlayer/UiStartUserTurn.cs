@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.UI;
+using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
 {
     [RequireComponent(typeof(IUiUserInput))]
     [RequireComponent(typeof(IUiPlayer))]
-    public class UiStartUserTurn : UiListener, IStartPlayerTurn
+    public class UiStartUserTurn : UiGameEventListener, IStartPlayerTurn
     {
         const float DelayToEnableInput = 2;
         IUiUserInput UserInput { get; set; }

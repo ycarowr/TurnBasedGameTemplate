@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using TurnBasedGameTemplate.Configurations;
 using TurnBasedGameTemplate.GameData;
+using TurnBasedGameTemplate.Tools.Patterns.Observer;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.Model.TurnBasedFSM
@@ -10,11 +12,13 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Constructor
 
-        protected AiTurnState(TurnBasedFsm fsm, IGameData gameData, Configurations.Configurations configurations) : base(fsm, gameData,
-            configurations)
+        protected AiTurnState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters,
+            Observer gameEvents) :
+            base(fsm, gameData, gameParameters, gameEvents)
         {
+            
         }
-
+        
         #endregion
 
         //----------------------------------------------------------------------------------------------------------
@@ -22,8 +26,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
         #region Properties
 
         Coroutine AiFinishTurnRoutine { get; set; }
-        float AiFinishTurnDelay => Configurations.Timers.TimeUntilAiFinishTurn;
-        float AiDoTurnDelay => Configurations.Timers.TimeUntilAiDoTurn;
+        float AiFinishTurnDelay => GameParameters.Timers.TimeUntilAiFinishTurn;
+        float AiDoTurnDelay => GameParameters.Timers.TimeUntilAiDoTurn;
 
         #endregion
 
