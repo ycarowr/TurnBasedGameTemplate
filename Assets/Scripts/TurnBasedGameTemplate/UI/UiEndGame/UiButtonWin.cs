@@ -1,10 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
-using UnityEngine;
+﻿using TMPro;
 using UnityEngine.UI;
 
 namespace TurnBasedGameTemplate.UI
@@ -19,14 +13,14 @@ namespace TurnBasedGameTemplate.UI
                 AddListener(win.PressWin);
         }
 
-        public interface IPressWin
-        {
-            void PressWin();
-        }
-
         protected void Awake() =>
             UiButton = new UITextMeshImage(
                 GetComponentInChildren<TMP_Text>(),
                 GetComponent<Image>());
+
+        public interface IPressWin
+        {
+            void PressWin();
+        }
     }
 }

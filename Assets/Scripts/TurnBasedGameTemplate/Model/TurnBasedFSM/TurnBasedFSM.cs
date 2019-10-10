@@ -31,7 +31,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Initialization
 
-        public TurnBasedFsm(IGameController handler, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
+        public TurnBasedFsm(IGameController handler, IGameData gameData, GameParameters gameParameters,
+            Observer gameEvents) :
             base(handler)
         {
             GameParameters = gameParameters;

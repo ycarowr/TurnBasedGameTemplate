@@ -7,7 +7,8 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 {
     public class TopPlayerState : AiTurnState
     {
-        public TopPlayerState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents) :
+        public TopPlayerState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters,
+            Observer gameEvents) :
             base(fsm, gameData, gameParameters, gameEvents)
         {
         }

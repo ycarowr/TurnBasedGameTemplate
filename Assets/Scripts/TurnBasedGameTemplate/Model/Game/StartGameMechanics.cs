@@ -1,6 +1,5 @@
 ﻿using TurnBasedGameTemplate.GameEvents;
 using TurnBasedGameTemplate.Model.Player;
-using UnityEngine;
 
 namespace TurnBasedGameTemplate.Model.Game
 {
@@ -15,7 +14,7 @@ namespace TurnBasedGameTemplate.Model.Game
         public void Execute()
         {
             if (Game.IsGameStarted) return;
- 
+
             Game.IsGameStarted = true;
 
             //calculus of the starting player

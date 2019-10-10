@@ -15,18 +15,19 @@ namespace TurnBasedGameTemplate.Model.Player
             GameEvents = gameEvents;
         }
 
-        //----------------------------------------------------------------------------------------------------------
-        
-        public GameParameters GameParameters { get; }
         public Observer GameEvents { get; }
-
-        public PlayerSeat Seat { get; }
-
-        public bool IsUser => Seat == GameParameters.Profiles.UserSeat;
 
         public StartTurnMechanics StartTurnMechanics { get; }
 
         public FinishTurnMechanics FinishTurnMechanics { get; }
+
+        //----------------------------------------------------------------------------------------------------------
+
+        public GameParameters GameParameters { get; }
+
+        public PlayerSeat Seat { get; }
+
+        public bool IsUser => Seat == GameParameters.Profiles.UserSeat;
 
         void IPlayer.FinishTurn() => FinishTurnMechanics.FinishTurn();
 

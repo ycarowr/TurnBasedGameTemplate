@@ -13,13 +13,10 @@ namespace TurnBasedGameTemplate.GameData
     /// TODO: Get rid of the Singleton??
     public class GameData : SingletonMB<GameData>, IGameData
     {
-        [SerializeField] GameParameters gameParameters;
         [SerializeField] Observer gameEvents;
-        
-        public IGame RuntimeGame { get; private set; }
+        [SerializeField] GameParameters gameParameters;
 
-        /// <summary>  Initialize game data OnAwake. </summary>
-        protected override void OnAwake() => CreateGame();
+        public IGame RuntimeGame { get; private set; }
 
         /// <summary>  Clears the game data. </summary>
         public void Clear() => RuntimeGame = null;
@@ -38,5 +35,8 @@ namespace TurnBasedGameTemplate.GameData
         }
 
         public void LoadGame() => throw new NotImplementedException();
+
+        /// <summary>  Initialize game data OnAwake. </summary>
+        protected override void OnAwake() => CreateGame();
     }
 }

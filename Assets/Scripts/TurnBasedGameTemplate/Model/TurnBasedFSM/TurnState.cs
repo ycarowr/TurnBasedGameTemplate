@@ -110,7 +110,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             GameData.RuntimeGame.FinishCurrentPlayerTurn();
             return true;
         }
-        
+
         #endregion
 
         //----------------------------------------------------------------------------------------------------------

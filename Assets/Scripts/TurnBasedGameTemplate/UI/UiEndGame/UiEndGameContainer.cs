@@ -20,7 +20,14 @@ namespace TurnBasedGameTemplate.UI
         IStartGame,
         IUiController
     {
+        const float DelayToEnable = 1f;
+        IUiUserInput UserInput { get; set; }
+
+        void IFinishGame.OnFinishGame(IPlayer winner) => StartCoroutine(EnableInput());
         void IRestartGameHandler.RestartGame() => Controller.RestartGameImmediately();
+
+        void IStartGame.OnStartGame(IPlayer starter) => UserInput.Disable();
+        public IGameController Controller => GameController.GameController.Instance;
 
         void Awake()
         {
@@ -36,13 +43,5 @@ namespace TurnBasedGameTemplate.UI
             yield return new WaitForSeconds(DelayToEnable);
             UserInput.Enable();
         }
-
-        const float DelayToEnable = 1f;
-        IUiUserInput UserInput { get; set; }
-        public IGameController Controller => GameController.GameController.Instance;
-
-        void IFinishGame.OnFinishGame(IPlayer winner) => StartCoroutine(EnableInput());
-
-        void IStartGame.OnStartGame(IPlayer starter) => UserInput.Disable();
     }
 }

@@ -17,7 +17,7 @@ namespace TurnBasedGameTemplate.Model.Game
         {
             GameParameters = gameParameters;
             GameEvents = gameEvents;
-            
+
             TurnLogic = new TurnLogic.TurnLogic(players);
             ProcessPreStartGame = new PreStartGameMechanics(this);
             ProcessStartGame = new StartGameMechanics(this);

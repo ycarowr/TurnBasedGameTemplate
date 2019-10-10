@@ -16,13 +16,14 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Constructor
 
-        protected BaseBattleState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters, Observer gameEvents)
+        protected BaseBattleState(TurnBasedFsm fsm, IGameData gameData, GameParameters gameParameters,
+            Observer gameEvents)
         {
             Fsm = fsm;
             GameData = gameData;
             GameParameters = gameParameters;
             GameEvents = gameEvents;
-            
+
             //Subscribe game events 
             GameEvents.AddListener(this);
             IsInitialized = true;
@@ -46,11 +47,7 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
 
         #region Operations
 
-        public virtual void OnClear()
-        {
-            //Unsubscribe game events
-            GameEvents.RemoveListener(this);
-        }
+        public virtual void OnClear() => GameEvents.RemoveListener(this);
 
         public virtual void OnInitialize()
         {

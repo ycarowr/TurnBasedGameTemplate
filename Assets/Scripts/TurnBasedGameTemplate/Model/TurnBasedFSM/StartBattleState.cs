@@ -18,7 +18,6 @@ namespace TurnBasedGameTemplate.Model.TurnBasedFSM
             Observer gameEvents) :
             base(fsm, gameData, gameParameters, gameEvents)
         {
-            
         }
 
         #endregion
