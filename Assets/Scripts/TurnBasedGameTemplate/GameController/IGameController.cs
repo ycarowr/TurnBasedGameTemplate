@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TurnBasedGameTemplate.GameController
 {
-    public interface IGameController : IStateMachineHandler, IGameDataHandler
+    public interface IGameController : IStateMachineHandler
     {
         MonoBehaviour MonoBehaviour { get; }
         IPlayerTurn GetUser();
