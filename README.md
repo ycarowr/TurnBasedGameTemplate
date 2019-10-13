@@ -28,3 +28,4 @@ Default Configurations:
 
 ![alt](https://github.com/ycarowr/TurnBasedGameTemplate/blob/master/Assets/Textures/TurnBasedGameTemplate/parameters.GIF)
 
+I made as example the project in this [link](https://github.com/ycarowr/SimpleTurnBasedGame) using this idea 
