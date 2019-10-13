@@ -2,6 +2,8 @@
  
 The idea here is to have the core implementation and the basic funcionalities of a turn-based game working in a clean repository, so every time a new project/prototype comes along I may use this implementation and skip rebuilding the basic mechanics.
 
+[Download Unitypackage](https://github.com/ycarowr/TurnBasedGameTemplate/tree/master/ReleasePackages)
+
 ## Structures and funcionalities:
 
 1. Two players, Top and Bottom; (can be extended to more players)
