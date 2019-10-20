@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Tools.Patterns.Singleton
+namespace TurnBasedGameTemplate
 {
     public class SingletonMB<T> : MonoBehaviour where T : class
     {

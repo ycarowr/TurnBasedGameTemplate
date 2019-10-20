@@ -1,5 +1,4 @@
-﻿using TurnBasedGameTemplate.GameController;
-using TurnBasedGameTemplate.Model.TurnBasedFSM;
+﻿using TurnBasedGameTemplate;
 
 namespace TurnBasedGameTemplate.UI
 {

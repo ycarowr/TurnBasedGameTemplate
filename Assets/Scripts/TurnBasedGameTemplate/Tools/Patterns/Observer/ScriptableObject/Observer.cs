@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Tools.Patterns.Observer
+namespace TurnBasedGameTemplate
 {
     [CreateAssetMenu(menuName = "Observer")]
     public class Observer : ScriptableObject

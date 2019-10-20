@@ -1,5 +1,4 @@
-﻿using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
+﻿using TurnBasedGameTemplate;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI

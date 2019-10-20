@@ -1,4 +1,4 @@
-﻿using TurnBasedGameTemplate.Model.Player;
+﻿using TurnBasedGameTemplate;
 
 namespace TurnBasedGameTemplate.UI
 {

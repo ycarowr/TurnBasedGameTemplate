@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+using TurnBasedGameTemplate;
 using UnityEngine;
 using UnityEngine.UI;
 

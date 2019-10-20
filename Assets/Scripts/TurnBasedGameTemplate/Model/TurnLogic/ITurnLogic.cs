@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 
 namespace TurnBasedGameTemplate.Model.TurnLogic
 {

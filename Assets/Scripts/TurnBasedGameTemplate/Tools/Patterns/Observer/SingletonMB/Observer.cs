@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using TurnBasedGameTemplate.Tools.Patterns.Singleton;
+using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Tools.Patterns.Observer
+namespace TurnBasedGameTemplate
 {
     public interface ISubject
     {

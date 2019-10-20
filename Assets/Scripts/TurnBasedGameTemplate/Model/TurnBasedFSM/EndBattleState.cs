@@ -1,10 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     /// <summary> Holds the Game flow when a match is Finished. </summary>
     public class EndBattleState : BaseBattleState, IFinishGame

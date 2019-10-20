@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Tools.Patterns.Singleton
+namespace TurnBasedGameTemplate
 {
     public class PersistentSingleton<T> : MonoBehaviour where T : Component
     {

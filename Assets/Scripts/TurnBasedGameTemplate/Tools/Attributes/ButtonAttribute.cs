@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TurnBasedGameTemplate.Tools.Attributes
+namespace TurnBasedGameTemplate
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class ButtonAttribute : Attribute

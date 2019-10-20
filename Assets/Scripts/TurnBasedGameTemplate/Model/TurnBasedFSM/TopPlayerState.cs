@@ -1,9 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     public class TopPlayerState : AiTurnState
     {

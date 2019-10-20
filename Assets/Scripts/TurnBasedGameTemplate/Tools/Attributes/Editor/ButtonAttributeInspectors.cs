@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Tools.Attributes.Editor
+namespace TurnBasedGameTemplate.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(Object), true)]

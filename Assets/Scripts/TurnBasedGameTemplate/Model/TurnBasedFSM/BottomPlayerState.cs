@@ -1,9 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     /// <summary> Bottom, where the User is always sitting. </summary>
     public class BottomPlayerState : AiTurnState

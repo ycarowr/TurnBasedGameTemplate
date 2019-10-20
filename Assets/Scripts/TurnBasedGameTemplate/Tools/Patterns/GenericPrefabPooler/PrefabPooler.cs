@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TurnBasedGameTemplate.Tools.Patterns.Singleton;
+using TurnBasedGameTemplate;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.Tools.Patterns.GenericPrefabPooler

@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameController;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Tools.Patterns.StateMachine;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     public class TurnBasedFsm : BaseStateMachine
     {

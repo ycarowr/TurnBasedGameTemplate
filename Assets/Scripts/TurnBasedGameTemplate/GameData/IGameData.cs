@@ -1,6 +1,6 @@
 ﻿using TurnBasedGameTemplate.Model.Game;
 
-namespace TurnBasedGameTemplate.GameData
+namespace TurnBasedGameTemplate
 {
     /// <summary>  Game data public interface</summary>
     public interface IGameData

@@ -1,6 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
+﻿using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Model.Player
+namespace TurnBasedGameTemplate
 {
     public interface IPlayer
     {

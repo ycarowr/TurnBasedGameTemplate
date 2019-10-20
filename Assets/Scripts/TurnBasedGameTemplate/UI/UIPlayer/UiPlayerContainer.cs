@@ -1,6 +1,4 @@
-﻿using TurnBasedGameTemplate.GameController;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Model.TurnBasedFSM;
+﻿using TurnBasedGameTemplate;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI
@@ -14,7 +12,7 @@ namespace TurnBasedGameTemplate.UI
     public class UiPlayerContainer : MonoBehaviour, IUiPlayer
     {
         public virtual PlayerSeat Seat => PlayerSeat.Top;
-        public IGameController Controller => GameController.GameController.Instance;
+        public IGameController Controller => TurnBasedGameTemplate.GameController.Instance;
         public IPlayerTurn PlayerController => Controller.GetPlayerController(Seat);
     }
 }

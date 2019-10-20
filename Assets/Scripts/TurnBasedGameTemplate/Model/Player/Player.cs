@@ -1,7 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.Model.Player
+namespace TurnBasedGameTemplate
 {
     /// <summary> A concrete player class. </summary>
     public class Player : IPlayer

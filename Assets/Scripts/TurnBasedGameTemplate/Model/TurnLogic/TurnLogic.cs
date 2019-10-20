@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 using Random = UnityEngine.Random;
 
 namespace TurnBasedGameTemplate.Model.TurnLogic

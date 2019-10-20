@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using TurnBasedGameTemplate.Configurations;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Model.Game;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
-using TurnBasedGameTemplate.Tools.Patterns.Singleton;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.GameData
+namespace TurnBasedGameTemplate
 {
     /// <summary>  Game data concrete implementation with Singleton Pattern. </summary>
     /// TODO: Get rid of the Singleton??

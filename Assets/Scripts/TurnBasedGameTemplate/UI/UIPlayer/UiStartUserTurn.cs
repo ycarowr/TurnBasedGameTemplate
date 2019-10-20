@@ -1,6 +1,5 @@
 ﻿using System.Collections;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 

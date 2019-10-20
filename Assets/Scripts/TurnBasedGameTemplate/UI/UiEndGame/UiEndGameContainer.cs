@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using TurnBasedGameTemplate.GameController;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Tools.Patterns.GameEvents;
 using UnityEngine;
 
@@ -27,7 +25,7 @@ namespace TurnBasedGameTemplate.UI
         void IRestartGameHandler.RestartGame() => Controller.RestartGameImmediately();
 
         void IStartGame.OnStartGame(IPlayer starter) => UserInput.Disable();
-        public IGameController Controller => GameController.GameController.Instance;
+        public IGameController Controller => TurnBasedGameTemplate.GameController.Instance;
 
         void Awake()
         {

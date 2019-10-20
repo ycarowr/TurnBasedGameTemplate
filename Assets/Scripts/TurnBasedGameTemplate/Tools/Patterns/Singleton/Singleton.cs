@@ -1,4 +1,4 @@
-﻿namespace TurnBasedGameTemplate.Tools.Patterns.Singleton
+﻿namespace TurnBasedGameTemplate
 {
     public class Singleton<T> where T : class, new()
     {

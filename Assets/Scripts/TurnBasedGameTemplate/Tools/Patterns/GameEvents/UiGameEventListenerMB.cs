@@ -1,4 +1,4 @@
-﻿using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents

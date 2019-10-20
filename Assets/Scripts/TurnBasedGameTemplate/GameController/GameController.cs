@@ -1,14 +1,6 @@
-﻿using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Model.TurnBasedFSM;
-using TurnBasedGameTemplate.Tools.Attributes;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
-using TurnBasedGameTemplate.Tools.Patterns.Singleton;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace TurnBasedGameTemplate.GameController
+namespace TurnBasedGameTemplate
 {
     /// <summary>
     ///     Main Controller. Holds the FSM which controls the game flow. Also provides access to the players
@@ -23,7 +15,7 @@ namespace TurnBasedGameTemplate.GameController
         TurnBasedFsm TurnBasedLogic { get; set; }
 
         /// <summary>  All the game data. Access via Singleton Pattern. </summary>
-        public IGameData Data => GameData.GameData.Instance;
+        public IGameData Data => TurnBasedGameTemplate.GameData.Instance;
 
         /// <summary>  Handler for the state machine. Used to dispatch coroutines. </summary>
         public MonoBehaviour MonoBehaviour => this;
@@ -35,10 +27,10 @@ namespace TurnBasedGameTemplate.GameController
         public IPlayerTurn GetPlayerController(PlayerSeat seat) => TurnBasedLogic.GetPlayerController(seat);
 
         [Button]
-        public void Win() => GameData.GameData.Instance.RuntimeGame.ForceWin(PlayerSeat.Bottom);
+        public void Win() => TurnBasedGameTemplate.GameData.Instance.RuntimeGame.ForceWin(PlayerSeat.Bottom);
 
         [Button]
-        public void Lose() => GameData.GameData.Instance.RuntimeGame.ForceWin(PlayerSeat.Top);
+        public void Lose() => TurnBasedGameTemplate.GameData.Instance.RuntimeGame.ForceWin(PlayerSeat.Top);
 
         [Button]
         public void RestartGameImmediately()

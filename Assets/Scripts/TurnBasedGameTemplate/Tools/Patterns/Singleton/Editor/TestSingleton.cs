@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace TurnBasedGameTemplate.Tools.Patterns.Singleton.Editor
+namespace TurnBasedGameTemplate.Editor
 {
     public class TestableSingleton : Singleton<TestableSingleton>
     {

@@ -1,4 +1,4 @@
-﻿namespace TurnBasedGameTemplate.Model.Player
+﻿namespace TurnBasedGameTemplate
 {
     /// <summary> Start turn player mechanics. </summary>
     public class StartTurnMechanics : BasePlayerMechanics

@@ -1,8 +1,8 @@
 ﻿using System;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Configurations
+namespace TurnBasedGameTemplate
 {
     [CreateAssetMenu(menuName = "Parameters")]
     public class GameParameters : ScriptableObject

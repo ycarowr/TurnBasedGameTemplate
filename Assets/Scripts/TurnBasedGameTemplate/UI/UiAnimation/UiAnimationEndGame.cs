@@ -1,7 +1,6 @@
 ﻿using TMPro;
-using TurnBasedGameTemplate.GameEvents;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Localization;
-using TurnBasedGameTemplate.Model.Player;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.UI

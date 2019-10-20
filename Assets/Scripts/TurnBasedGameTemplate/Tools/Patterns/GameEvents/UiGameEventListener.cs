@@ -1,11 +1,11 @@
-﻿using TurnBasedGameTemplate.Tools.Patterns.Observer;
+﻿using TurnBasedGameTemplate;
 using UnityEngine;
 
 namespace TurnBasedGameTemplate.Tools.Patterns.GameEvents
 {
     public class UiGameEventListener : MonoBehaviour, IListener
     {
-        [SerializeField] Observer.Observer GameEvents;
+        [SerializeField] TurnBasedGameTemplate.Observer GameEvents;
 
         protected virtual void Start()
         {

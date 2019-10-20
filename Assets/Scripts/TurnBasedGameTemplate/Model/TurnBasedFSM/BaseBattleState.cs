@@ -1,10 +1,7 @@
-using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Tools.Patterns.StateMachine;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     /// <summary>
     ///     The base of all the battle states. States work as controllers to provide access to a funcionality in the

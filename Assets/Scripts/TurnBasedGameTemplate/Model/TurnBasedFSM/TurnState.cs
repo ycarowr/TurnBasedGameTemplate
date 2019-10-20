@@ -1,12 +1,8 @@
 ﻿using System.Collections;
-using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.GameData;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+using TurnBasedGameTemplate;
 using UnityEngine;
 
-namespace TurnBasedGameTemplate.Model.TurnBasedFSM
+namespace TurnBasedGameTemplate
 {
     public abstract class TurnState : BaseBattleState, IFinishPlayerTurn, IPlayerTurn
     {

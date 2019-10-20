@@ -1,6 +1,5 @@
 ﻿using TMPro;
-using TurnBasedGameTemplate.GameEvents;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 
 namespace TurnBasedGameTemplate.UI
 {

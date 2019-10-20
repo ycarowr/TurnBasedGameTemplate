@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using TurnBasedGameTemplate.Configurations;
-using TurnBasedGameTemplate.Model.Player;
+using TurnBasedGameTemplate;
 using TurnBasedGameTemplate.Model.TurnLogic;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
 
 namespace TurnBasedGameTemplate.Model.Game
 {

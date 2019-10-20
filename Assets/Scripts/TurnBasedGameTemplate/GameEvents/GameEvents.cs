@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using TurnBasedGameTemplate.Model.Player;
-using TurnBasedGameTemplate.Tools.Patterns.Observer;
+using TurnBasedGameTemplate;
 
-namespace TurnBasedGameTemplate.GameEvents
+namespace TurnBasedGameTemplate
 {
     /// <summary> Broadcast of the players right before the game start. </summary>
     public interface IPreGameStart : ISubject
